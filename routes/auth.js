@@ -86,5 +86,4 @@ router.get('/user', async (req, res)=>{
   }
 });
 
-
 export default router;
