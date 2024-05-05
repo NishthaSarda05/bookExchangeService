@@ -6,7 +6,7 @@ const router = Router();
 
 const SECRET_KEY="key"
 const TIMER=2000;
-// Register user
+
 router.post("/register", async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -32,7 +32,6 @@ router.post("/register", async (req, res) => {
   }
 });
 
-// Login user
 router.post("/login", async (req, res) => {
   try {
     const { username, password } = req.body;
