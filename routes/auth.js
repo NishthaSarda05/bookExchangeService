@@ -2,6 +2,8 @@ import express, { Router } from "express";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
+import Order from "../models/order.js";
+import Cart from "../models/Cart.js";
 const router = Router();
 
 const SECRET_KEY="key"
@@ -84,6 +86,48 @@ router.get('/user', async (req, res)=>{
       res.status(401).json({ error: 'Invalid token' });
     }, TIMER);
   }
+});
+
+router.get('/order-history/:username', async (req, res)=>{
+  let user = req.params.username;
+
+  try {
+    const order = await Order.find({'username' : user} );
+
+    if (!order) {
+      return setTimeout(() => {
+        res.status(401).json({ error: 'Oder Details are not found' });
+      }, TIMER);
+    }
+    setTimeout(() => {
+      res.json({ order });
+    }, TIMER);
+  } catch (error) {
+     setTimeout(() => {
+      res.status(401).json({ error: 'Invalid req' });
+    }, TIMER);
+  }
+});
+
+router.get('/cart/:username', async (req, res)=>{
+  let user = req.params.username;
+
+  try {
+    const cartItem = await Cart.find({'username' : user} );
+
+    if (!cartItem) {
+      setTimeout(() => {
+      res.status(200).json({ "your cart is emapty" });
+    }, TIMER);
+  }
+  setTimeout(() => {
+    res.json({ cartItem });
+  }, TIMER);
+} catch(error){
+  setTimeout(() => {
+    res.status(401).json({ error: 'Invalid req' });
+  }, TIMER);
+}
 });
 
 export default router;
