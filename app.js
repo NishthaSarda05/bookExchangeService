@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dbConnect from './dbConfig.js';
 import authRoutes from "./routes/auth.js"
+import bookRoutes from "./routes/books.js"
 // import http from 'http';
 
 dbConnect();
@@ -27,6 +28,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use("/auth", authRoutes);
+app.use("/books", bookRoutes);
 app.listen(port, () => console.log(`Server running on port ${port}`));
 
 
