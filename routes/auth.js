@@ -89,14 +89,14 @@ router.get('/user', async (req, res)=>{
 });
 
 router.get('/order-history/:username', async (req, res)=>{
-  let user = req.params.username;
+let user = req.params.username;
 
-  try {
+try {
     const order = await Order.find({'username' : user} );
 
     if (!order) {
       return setTimeout(() => {
-        res.status(401).json({ error: 'Oder Details are not found' });
+        res.status(200).json({ message: 'Oder Details are not found' });
       }, TIMER);
     }
     setTimeout(() => {
@@ -117,7 +117,7 @@ router.get('/cart/:username', async (req, res)=>{
 
     if (!cartItem) {
       setTimeout(() => {
-      res.status(200).json({ "your cart is emapty" });
+      res.status(200).json({message: 'your cart is emapty'});
     }, TIMER);
   }
   setTimeout(() => {
