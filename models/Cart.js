@@ -5,7 +5,8 @@ const CartSchema = new mongoose.Schema({
   books: [
     {
       bookId: { type: mongoose.Schema.Types.ObjectId, ref: "Book" },
-      title: { type: mongoose.Schema.Types.ObjectId, ref: "Book" },
+      name: { type: String, ref: "Book" },
+      imageUrl: {type: String}
     },
   ],
 });

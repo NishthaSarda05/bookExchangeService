@@ -89,12 +89,12 @@ router.get('/user', async (req, res)=>{
 });
 
 router.get('/order-history/:username', async (req, res)=>{
-let user = req.params.username;
 
+  let username = req.params.username;
+  console.log(username);
 try {
-    const order = await Order.find({'username' : user} );
-
-    if (!order) {
+    const order = await Order.findOne({ username} );
+     if (!order) {
       return setTimeout(() => {
         res.status(200).json({ message: 'Oder Details are not found' });
       }, TIMER);
@@ -104,17 +104,17 @@ try {
     }, TIMER);
   } catch (error) {
      setTimeout(() => {
-      res.status(401).json({ error: 'Invalid req' });
+      res.status(401).json({ error: error });
     }, TIMER);
   }
 });
 
 router.get('/cart/:username', async (req, res)=>{
-  let user = req.params.username;
+  let username = req.params.username;
 
   try {
-    const cartItem = await Cart.find({'username' : user} );
-
+    const cartItem = await Cart.findOne({ username} );
+    
     if (!cartItem) {
       setTimeout(() => {
       res.status(200).json({message: 'your cart is emapty'});
@@ -125,7 +125,7 @@ router.get('/cart/:username', async (req, res)=>{
   }, TIMER);
 } catch(error){
   setTimeout(() => {
-    res.status(401).json({ error: 'Invalid req' });
+    res.status(401).json({ error: error});
   }, TIMER);
 }
 });

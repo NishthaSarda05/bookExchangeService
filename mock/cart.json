@@ -1,0 +1,23 @@
+[{
+    "username": "nishtha",
+    "books": [
+        {
+"bookId": "book1",
+"name": "The Jungle Book",
+"imageUrl": "https://cdn.chec.io/merchants/28663/assets/cvLwYNXyje5f45bW|2.jpg"
+        }
+    ]
+},
+
+{
+    "username": "user1",
+    "books": [
+        {
+"bookId": "book1",
+"name": "The Jungle Book",
+"imageUrl": "https://cdn.chec.io/merchants/28663/assets/cvLwYNXyje5f45bW|2.jpg"
+        }
+    ]
+}
+
+]
