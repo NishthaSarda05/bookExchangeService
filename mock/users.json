@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "6640d21f42bb08a3f8e9916b"
+  },
+  "username": "test123",
+  "email": "test123@gmail.com",
+  "password": "$2b$10$7TJfdKyto5xoq0d7Sk5vuOCLEuuzREC4cQKUpFZk3NgrYyUeJ4xMS",
+  "favoriteGenres": [],
+  "books": [],
+  "__v": 0
+}]
