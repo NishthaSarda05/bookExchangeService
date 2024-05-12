@@ -1,0 +1,3 @@
+This screen recording covers the app flow for registering new user or login the existing user.
+user can see popular book list and add to cart for the books they wished to buy/borrow.
+user can see their order history.
